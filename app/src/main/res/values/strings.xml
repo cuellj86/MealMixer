@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Meal Mixer</string>
+    <string name="edit_message">Enter a mesage</string>
+    <string name="button_createMeal">Create Meal</string>
+    <string name="text_lastMeal">Ready to make a meal?</string>
+    <string name="text_welcome">Welcome!</string>
+    <string name="text_cooking">Let\'s Get Cooking!</string>
+    <string name="button_meat">Meat</string>
+    <string name="button_vegetable">Vegetable</string>
+    <string name="button_starch">Starch</string>
+    <string name="text_meatWelcome">Choose your meat(s)!</string>
+    <string name="text_vegetableWelcome">Choose your vegetable(s)!</string>
+    <string name="text_starchWelcome">Choose your starch(es)!</string>
+    <string name="button_mixMeal">Mix Your Meal!</string>
+    <string name="check_beef">Beef</string>
+    <string name="check_chicken">Chicken</string>
+    <string name="check_fish">Fish</string>
+    <string name="check_pork">Pork</string>
+    <string name="button_apply">Apply</string>
+    <string name="Meat_ID">Meat ID</string>
+    <string name="Desc_ID">Description ID</string>
+    <string name="check_vine">Vine Vegetable</string>
+    <string name="check_root">Root Vegetable</string>
+    <string name="Veg_ID">Veggie ID</string>
+    <string name="VegDesc_ID">Veggie Description ID</string>
+    <string name="Starch_ID">Starch ID</string>
+    <string name="StarchDesc_ID">Starch Description ID</string>
+    <string name="check_pasta">Pasta</string>
+    <string name="check_bread">Bread</string>
+    <string name="text_meal">Here\'s your meal:</string>
+</resources>
