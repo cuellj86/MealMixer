@@ -36,9 +36,9 @@ public class DisplayMessageActivity extends AppCompatActivity {
         /*String meaty = getSharedPreferences("Meat_ID",Context.MODE_PRIVATE).getString(getResources().getString(R.string.Meat_ID), null);
         String meatDesc = getSharedPreferences("Desc_ID", Context.MODE_PRIVATE).getString(getResources().getString(R.string.Desc_ID), null);*/
 
-        //NOT WHERE IT SHOULD BE SENDING
+        //NEEDS VALIDATION
         Intent intent = new Intent(this, Endscreen.class);
         startActivity(intent);
-        //STILL NEED TO CREATE NEW ACTIVITY!!
+
     }
 }

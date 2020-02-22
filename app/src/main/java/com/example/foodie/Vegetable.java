@@ -29,37 +29,67 @@ public class Vegetable extends AppCompatActivity {
     protected void  onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vegetable);
+        CheckBox vineCheck = findViewById(R.id.checkBox5);
+        CheckBox rootCheck = findViewById(R.id.checkBox6);
+        boolean vine = getSharedPreferences("check_vine",Context.MODE_PRIVATE).getBoolean("check_vine", false);
+        boolean root = getSharedPreferences("check_root", Context.MODE_PRIVATE).getBoolean("check_root", false);
+        if (vine == true){
+            vineCheck.setChecked(true);
+            onCheckboxClicked(vineCheck);
+        }
+        else
+        {
+            vineCheck.setChecked(false);
+        }
+        if(root == true){
+            rootCheck.setChecked(true);
+            onCheckboxClicked(rootCheck);
+        }
+        else
+        {
+            rootCheck.setChecked(false);
+        }
     }
 
     public void onCheckboxClicked (View view){
+        SharedPreferences checker5 = getSharedPreferences("check_vine", MODE_PRIVATE);
+        SharedPreferences.Editor c5Editor = checker5.edit();
+        SharedPreferences checker6 = getSharedPreferences("check_root", MODE_PRIVATE);
+        SharedPreferences.Editor c6Editor = checker6.edit();
 
         boolean checked = ((CheckBox) view).isChecked();
 
         switch (view.getId()){
             case R.id.checkBox5:
                 if(checked){
+                    c5Editor.putBoolean("check_vine", true);
                     for(int i = 0; i < roots.length; i++){
                         veggie.add(roots[i]);
                     }
                 }
                 else{
+                    c5Editor.putBoolean("check_vine", false);
                     for(int i = 0; i < roots.length; i++){
                         veggie.remove(roots[i]);
                     }
                 }
+                c5Editor.commit();
                 break;
 
             case R.id.checkBox6:
                 if(checked){
+                    c6Editor.putBoolean("check_root", true);
                     for(int i = 0; i < vine.length; i++){
                         veggie.add(vine[i]);
                     }
                 }
                 else{
+                    c6Editor.putBoolean("check_root", false);
                     for(int i = 0; i < vine.length; i++){
                         veggie.remove(vine[i]);
                     }
                 }
+                c6Editor.commit();
                 break;
         }
     }

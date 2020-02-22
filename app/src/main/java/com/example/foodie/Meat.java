@@ -32,15 +32,64 @@ public class Meat extends AppCompatActivity{
     protected void  onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meat);
+        CheckBox beefCheck = findViewById(R.id.checkBox);
+        CheckBox chickenCheck = findViewById(R.id.checkBox2);
+        CheckBox fishCheck = findViewById(R.id.checkBox3);
+        CheckBox porkCheck = findViewById(R.id.checkBox4);
+        boolean beef = getSharedPreferences("check_beef",Context.MODE_PRIVATE).getBoolean("check_beef", false);
+        boolean chicken = getSharedPreferences("check_chicken", Context.MODE_PRIVATE).getBoolean("check_chicken", false);
+        boolean fish = getSharedPreferences("check_fish",Context.MODE_PRIVATE).getBoolean("check_fish", false);
+        boolean pork = getSharedPreferences("check_pork", Context.MODE_PRIVATE).getBoolean("check_pork", false);
+        if (beef == true){
+            beefCheck.setChecked(true);
+            onCheckboxClicked(beefCheck);
+        }
+        else
+        {
+            beefCheck.setChecked(false);
+        }
+        if(chicken == true){
+            chickenCheck.setChecked(true);
+            onCheckboxClicked(chickenCheck);
+        }
+        else
+        {
+            chickenCheck.setChecked(false);
+        }
+        if (fish == true){
+            fishCheck.setChecked(true);
+            onCheckboxClicked(fishCheck);
+        }
+        else
+        {
+            fishCheck.setChecked(false);
+        }
+        if(pork == true){
+            porkCheck.setChecked(true);
+            onCheckboxClicked(porkCheck);
+        }
+        else
+        {
+            porkCheck.setChecked(false);
+        }
     }
 
     public void onCheckboxClicked(View view){
+        SharedPreferences checker = getSharedPreferences("check_beef", MODE_PRIVATE);
+        SharedPreferences.Editor cEditor = checker.edit();
+        SharedPreferences checker2 = getSharedPreferences("check_chicken", MODE_PRIVATE);
+        SharedPreferences.Editor c2Editor = checker2.edit();
+        SharedPreferences checker3 = getSharedPreferences("check_fish", MODE_PRIVATE);
+        SharedPreferences.Editor c3Editor = checker3.edit();
+        SharedPreferences checker4 = getSharedPreferences("check_pork", MODE_PRIVATE);
+        SharedPreferences.Editor c4Editor = checker4.edit();
 
         boolean checked = ((CheckBox) view).isChecked();
 
         switch (view.getId()){
             case R.id.checkBox:
                 if (checked){
+                    cEditor.putBoolean("check_beef", true);
                     for(int i = 0; i < beef.length; i++ ){
                         meats.add(beef[i]);
                     }
@@ -49,6 +98,7 @@ public class Meat extends AppCompatActivity{
                     }*/
                 }
                 else {
+                    cEditor.putBoolean("check_beef", false);
                     for (int i = 0; i < beef.length; i++) {
                         meats.remove(beef[i]);
                     }
@@ -56,10 +106,12 @@ public class Meat extends AppCompatActivity{
                         description.remove(beefDesc[i]);
                     }*/
                 }
+                cEditor.commit();
                 break;
 
             case R.id.checkBox2:
                 if (checked) {
+                    c2Editor.putBoolean("check_chicken", true);
                     for (int i = 0; i < chicken.length; i++) {
                         meats.add(chicken[i]);
                     }
@@ -68,6 +120,7 @@ public class Meat extends AppCompatActivity{
                     }*/
                 }
                 else {
+                    c2Editor.putBoolean("check_chicken", false);
                     for (int i = 0; i < chicken.length; i++) {
                         meats.remove(chicken[i]);
                     }
@@ -75,10 +128,12 @@ public class Meat extends AppCompatActivity{
                         description.remove(chickenDesc[i]);
                     }*/
                 }
+                c2Editor.commit();
                 break;
 
             case R.id.checkBox3:
                 if (checked) {
+                    c3Editor.putBoolean("check_fish", true);
                     for (int i = 0; i < fish.length; i++) {
                         meats.add(fish[i]);
                     }
@@ -87,6 +142,7 @@ public class Meat extends AppCompatActivity{
                     }*/
                 }
                 else {
+                    c3Editor.putBoolean("check_fish", false);
                     for (int i = 0; i < fish.length; i++) {
                         meats.remove(fish[i]);
                     }
@@ -94,10 +150,12 @@ public class Meat extends AppCompatActivity{
                         description.remove(fishDesc[i]);
                     }*/
                 }
+                c3Editor.commit();
                 break;
 
             case R.id.checkBox4:
                 if (checked) {
+                    c4Editor.putBoolean("check_pork", true);
                     for (int i = 0; i < pork.length; i++) {
                         meats.add(pork[i]);
                     }
@@ -106,6 +164,7 @@ public class Meat extends AppCompatActivity{
                     }*/
                 }
                 else {
+                    c4Editor.putBoolean("check_fish", false);
                     for (int i = 0; i < pork.length; i++) {
                         meats.remove(pork[i]);
                     }
@@ -113,6 +172,7 @@ public class Meat extends AppCompatActivity{
                         description.remove(porkDesc[i]);
                     }*/
                 }
+                c4Editor.commit();
                 break;
         }
 
