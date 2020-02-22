@@ -20,45 +20,78 @@ public class Starch extends AppCompatActivity {
     ArrayList<String> description = new ArrayList<String>();
     Random rand = new Random();
     String[] pasta = {"Linguini", "Macaroni", "Spaghetti", "Angel Hair"};
-    String[] bread = {"Garlic Bread", "Italian Bread", "Croissant", "Biscuit"};
-    String[] pastaDesc = {"Cheesy", "Tomato Sauce", "Parmesean"};
-    String[] breadDesc = {"Toasted"};
+    String[] bread = {"Garlic Bread", "Italian Bread", "Croissants", "Biscuits"};
+    String[] pastaDesc = {"Cheesy", "Red Sauce", "White Sauce"};
+    String[] breadDesc = {"Warm"};
+
 
     @Override
     protected void  onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_starch);
+        CheckBox pastaCheck = findViewById(R.id.checkBox7);
+        CheckBox breadCheck = findViewById(R.id.checkBox8);
+        boolean pasta = getSharedPreferences("check_pasta",Context.MODE_PRIVATE).getBoolean("check_pasta", false);
+        boolean bread = getSharedPreferences("check_bread", Context.MODE_PRIVATE).getBoolean("check_bread", false);
+        if (pasta == true){
+            pastaCheck.setChecked(true);
+            onCheckboxClicked(pastaCheck);
+        }
+        else
+        {
+            pastaCheck.setChecked(false);
+        }
+        if(bread == true){
+            breadCheck.setChecked(true);
+            onCheckboxClicked(breadCheck);
+        }
+        else
+        {
+            breadCheck.setChecked(false);
+        }
+
     }
 
     public void onCheckboxClicked (View view){
+
+        SharedPreferences checker7 = getSharedPreferences("check_pasta", MODE_PRIVATE);
+        SharedPreferences.Editor c7Editor = checker7.edit();
+        SharedPreferences checker8 = getSharedPreferences("check_bread", MODE_PRIVATE);
+        SharedPreferences.Editor c8Editor = checker8.edit();
 
         boolean checked = ((CheckBox) view).isChecked();
 
         switch (view.getId()){
             case R.id.checkBox7:
                 if(checked){
+                    c7Editor.putBoolean("check_pasta", true);
                     for(int i = 0; i < pasta.length; i++){
                         starches.add(pasta[i]);
                     }
                 }
                 else{
+                    c7Editor.putBoolean("check_pasta", false);
                     for(int i = 0; i < pasta.length; i++){
                         starches.remove(pasta[i]);
                     }
                 }
+                c7Editor.commit();
                 break;
 
             case R.id.checkBox8:
                 if(checked){
+                    c8Editor.putBoolean("check_bread", true);
                     for(int i = 0; i < bread.length; i++){
                         starches.add(bread[i]);
                     }
                 }
                 else{
+                    c8Editor.putBoolean("check_bread", false);
                     for(int i = 0; i < bread.length; i++){
                         starches.remove(bread[i]);
                     }
                 }
+                c8Editor.commit();
                 break;
         }
     }
@@ -106,4 +139,6 @@ public class Starch extends AppCompatActivity {
     public static boolean useList(String[] arr, String targetValue){
         return Arrays.asList(arr).contains(targetValue);
     }
+
+
 }
