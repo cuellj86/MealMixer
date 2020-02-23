@@ -28,4 +28,5 @@
     <string name="check_pasta">Pasta</string>
     <string name="check_bread">Bread</string>
     <string name="text_meal">Here\'s your meal:</string>
+    <string name="button_newMix">Try Again?</string>
 </resources>

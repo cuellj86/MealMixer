@@ -22,7 +22,7 @@ public class Starch extends AppCompatActivity {
     String[] pasta = {"Linguini", "Macaroni", "Spaghetti", "Angel Hair"};
     String[] bread = {"Garlic Bread", "Italian Bread", "Croissants", "Biscuits"};
     String[] pastaDesc = {"Cheesy", "Red Sauce", "White Sauce"};
-    String[] breadDesc = {"Warm"};
+    String[] breadDesc = {"Cheesy", "Warm", "Buttery"};
 
 
     @Override
@@ -101,8 +101,8 @@ public class Starch extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "No selection has been made", Toast.LENGTH_SHORT).show();
         }
         else {
-            String finalVeg = starches.get(rand.nextInt(starches.size()));
-            if (useList(pasta, finalVeg)){
+            String finalStarch = starches.get(rand.nextInt(starches.size()));
+            if (useList(pasta, finalStarch)){
                 for(int i = 0; i < pastaDesc.length; i++){
                     description.add(pastaDesc[i]);
                 }
@@ -120,7 +120,7 @@ public class Starch extends AppCompatActivity {
             SharedPreferences.Editor editor = sharedPref.edit();
             SharedPreferences descPref = getSharedPreferences("StarchDesc_ID", Context.MODE_PRIVATE);
             SharedPreferences.Editor descEditor = descPref.edit();
-            editor.putString(getResources().getString(R.string.Starch_ID), finalVeg);
+            editor.putString(getResources().getString(R.string.Starch_ID), finalStarch);
             descEditor.putString(getResources().getString(R.string.StarchDesc_ID), finalDesc);
             editor.commit();
             descEditor.commit();
@@ -128,9 +128,9 @@ public class Starch extends AppCompatActivity {
 
             //Send and toast confirmation
             startActivity(intent);
-            String Tester = getSharedPreferences("Starch_ID", Context.MODE_PRIVATE).getString(getResources().getString(R.string.Starch_ID), finalVeg);
+            String Tester = getSharedPreferences("Starch_ID", Context.MODE_PRIVATE).getString(getResources().getString(R.string.Starch_ID), finalStarch);
             String descTester = getSharedPreferences("StarchDesc_ID", Context.MODE_PRIVATE).getString(getResources().getString(R.string.StarchDesc_ID), finalDesc);
-            if ((Tester.equals(finalVeg)) && (descTester.equals(finalDesc))) {
+            if ((Tester.equals(finalStarch)) && (descTester.equals(finalDesc))) {
                 Toast.makeText(getApplicationContext(), "Starch Saved!", Toast.LENGTH_SHORT).show();
             }
         }

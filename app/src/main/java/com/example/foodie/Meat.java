@@ -93,18 +93,12 @@ public class Meat extends AppCompatActivity{
                     for(int i = 0; i < beef.length; i++ ){
                         meats.add(beef[i]);
                     }
-                    /*for(int i = 0; i < beefDesc.length; i++ ){
-                        description.add(beefDesc[i]);
-                    }*/
                 }
                 else {
                     cEditor.putBoolean("check_beef", false);
                     for (int i = 0; i < beef.length; i++) {
                         meats.remove(beef[i]);
                     }
-                    /*for (int i = 0; i < beefDesc.length; i++) {
-                        description.remove(beefDesc[i]);
-                    }*/
                 }
                 cEditor.commit();
                 break;
@@ -115,18 +109,12 @@ public class Meat extends AppCompatActivity{
                     for (int i = 0; i < chicken.length; i++) {
                         meats.add(chicken[i]);
                     }
-                    /*for (int i = 0; i < chickenDesc.length; i++) {
-                        description.add(chickenDesc[i]);
-                    }*/
                 }
                 else {
                     c2Editor.putBoolean("check_chicken", false);
                     for (int i = 0; i < chicken.length; i++) {
                         meats.remove(chicken[i]);
                     }
-                    /*for(int i = 0; i< chickenDesc.length; i++){
-                        description.remove(chickenDesc[i]);
-                    }*/
                 }
                 c2Editor.commit();
                 break;
@@ -137,18 +125,12 @@ public class Meat extends AppCompatActivity{
                     for (int i = 0; i < fish.length; i++) {
                         meats.add(fish[i]);
                     }
-                    /*for(int i = 0; i < fishDesc.length; i++ ){
-                        description.add(fishDesc[i]);
-                    }*/
                 }
                 else {
                     c3Editor.putBoolean("check_fish", false);
                     for (int i = 0; i < fish.length; i++) {
                         meats.remove(fish[i]);
                     }
-                    /*for(int i = 0; i< fishDesc.length; i++){
-                        description.remove(fishDesc[i]);
-                    }*/
                 }
                 c3Editor.commit();
                 break;
@@ -159,18 +141,12 @@ public class Meat extends AppCompatActivity{
                     for (int i = 0; i < pork.length; i++) {
                         meats.add(pork[i]);
                     }
-                    /*for(int i = 0; i < porkDesc.length; i++ ){
-                        description.add(porkDesc[i]);
-                    }*/
                 }
                 else {
                     c4Editor.putBoolean("check_fish", false);
                     for (int i = 0; i < pork.length; i++) {
                         meats.remove(pork[i]);
                     }
-                    /*for(int i = 0; i< porkDesc.length; i++){
-                        description.remove(porkDesc[i]);
-                    }*/
                 }
                 c4Editor.commit();
                 break;
